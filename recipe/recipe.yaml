@@ -1,6 +1,6 @@
 context:
   name: keygen-py
-  version: 0.1.8
+  version: "0.2.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,20 +8,19 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/keygen_py-${{ version }}.tar.gz
-  sha256: 10407666cd8dddd8906b9b80c7ec98d6a24d0a00c04e8bfff3e8fd32dbd93965
+  sha256: c4e4546260736db6a73a82f926102498743c151c122e98823954d3a5e1c3087b
 
 build:
-  number: 2
+  number: 0
   skip: match(python, "<3.9") and match(python, ">3.13")
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: maturin
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - maturin
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('rust') }}
