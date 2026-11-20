@@ -1,17 +1,13 @@
 c_compiler:
-- gcc
+- vs
 c_compiler_version:
-- '15'
+- '2022'
 c_stdlib:
-- sysroot
-c_stdlib_version:
-- '2.17'
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma10
 perl:
 - 5.32.1
 pin_run_as_build:
@@ -23,7 +19,4 @@ python:
 rust_compiler:
 - rust
 target_platform:
-- linux-64
-zip_keys:
-- - python
-  - channel_sources
+- win-64
